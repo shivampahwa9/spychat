@@ -1,18 +1,20 @@
 
-print("Spychat")
+#print("Spychat")
 
-spy_salutation=input("What should we call you(Mr. or Ms.)?")
+#spy_salutation=input("What should we call you(Mr. or Ms.)?")
 
-print(spy_salutation)
+#print(spy_salutation)
 
-spy_name=input("What is your name?")
+#spy_name=input("What is your name?")
 
-print(spy_name)
+#print(spy_name)
 
-print("Welcome to spychat" +" "+ spy_salutation +" "+ spy_name)
+#print("Welcome to spychat" +" "+ spy_salutation +" "+ spy_name)
 
-print("Alright"+" "+ spy_salutation +" "+spy_name+" " +"I'd like to know a little bit more about you....")
+#print("Alright"+" "+ spy_salutation +" "+spy_name+" " +"I'd like to know a little bit more about you....")
+
 ####### new user or default ####
+STATUS_MESSAGES=["MY NAME IS SHIVAM","SHAKEN,NOT STIRRED"]
 def add_status(current_status):
 
     if current_status!= None:
@@ -38,9 +40,9 @@ def add_status(current_status):
                 updated_status_message = STATUS_MESSAGES[message_selection-1]
         return updated_status_message
 
-STATUS_MESSAGES=["MY NAME IS SHIVAM","SHAKEN,NOT STIRRED"]
 
-def start_chat(spy_name,spy_age,spy_rating):
+
+def start_chat(spy_name,spy_age):
     show_menu=True
     current_status=None
     while show_menu==True:
@@ -54,15 +56,14 @@ def start_chat(spy_name,spy_age,spy_rating):
             show_menu=False
 
 
-spy_name="shivam"
-spy_salutation="Mr"
-spy_age=21
-spy_rating=5
+from spy_details import spy_name
+from spy_details import spy_salutation
+from spy_details import spy_age
 
 user=("continue as a "+spy_salutation+" "+spy_name+" (Y/N)")
 existing=input(user)
 if existing == "Y":
-    start_chat(spy_name,spy_age,spy_rating)
+    start_chat(spy_name,spy_age)
 else:
     username=input("what is your name")
     if len(username)>=3:
