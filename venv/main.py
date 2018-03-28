@@ -102,6 +102,8 @@ else:
         else:
             print("not good")
         print("welcome to spychat" +" "+spy_salutation1+" "+username+".You are"+" "+str(spy_age)+" "+"years old."+" "+str(spy_rating)+" "+"rating you have given")
+        start_chat(spy_name, spy_age)
+        add_friend()
     else:
         print("age is not valid")
 
