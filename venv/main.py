@@ -1,4 +1,4 @@
-from spy_details import spy_name,spy_salutation,spy_age
+from spy_details import spy_name,spy_salutation,spy_age,spy_rating
 
 #print("Spychat")
 
@@ -16,6 +16,11 @@ from spy_details import spy_name,spy_salutation,spy_age
 
 ####### new user or default ####
 STATUS_MESSAGES=["MY NAME IS SHIVAM","SHAKEN,NOT STIRRED"]
+friends_name=[]
+friends_age= []
+friends_rating=[]
+friends_is_online=[]
+
 def add_status(current_status):
 
     if current_status!= None:
@@ -55,13 +60,31 @@ def start_chat(spy_name,spy_age):
             current_status=add_status(current_status)
         elif menu_choice== 2 :
             show_menu=False
+############# add a friend
+def add_friend():
+    print("\nAdd a new friend")
+    new_name = input("\nYour friend's name:")
+    new_salutation = input("Are they Mr. or Ms.?: ")
+    new_name = new_name + " " + new_salutation
+    new_age = int(input("Age?"))
+    new_rating = int(input("Spy rating?"))
 
+    if len(new_name) > 0 and new_age > 12 and new_rating >= spy_rating:
+        friends_name.append(new_name)
+        friends_age.append(new_age)
+        friends_rating.append(new_rating)
+        print(new_name)
+
+    else:
+        print('Sorry! Invalid entry. We can\'t add spy with the details you provided')
+    return len(friends_name)
 
 
 user=("continue as a "+spy_salutation+" "+spy_name+" (Y/N)")
 existing=input(user)
 if existing == "Y":
     start_chat(spy_name,spy_age)
+    add_friend()
 else:
     username=input("what is your name")
     if len(username)>=3:
