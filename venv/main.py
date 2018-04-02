@@ -104,7 +104,7 @@ def select_friend():
 
 def send_a_message():
     friend_choice= select_friend()
-    
+
     image = raw_input("What is the name of the image?")
     output_path = 'abc.jpg'
     text = raw_input("What do you want to say?")
@@ -128,7 +128,7 @@ def read_message():
         "time": datetime.now(),
         "send_by_me": False
     }
-    Friends[selection]["Chats"].append(new_chat)
+    Friends[friend_choice]["Chats"].append(new_chat)
     print(text)
 
 user=("continue as a "+spy_salutation+" "+spy_name+" (Y/N)")
