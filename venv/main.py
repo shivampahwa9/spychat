@@ -1,5 +1,5 @@
 from spy_details import spy_name,spy_salutation,spy_age,spy_rating
-from spy_details import spy
+from spy_details import spy,ChatMessage
 from steganography.steganography import Steganography
 from datetime import datetime
 
@@ -71,20 +71,15 @@ def start_chat(spy_name,spy_age,spy_rating):
 
 ############# add a friend
 def add_friend():
-    new_friend = {
-        'name': '',
-        'salutation': '',
-        'age': 0,
-        'rating': 0.0
-    }
+    new_friend = spy_details.spy(friends)
 
-    new_friend['name']= raw_input("\nYour friend's name:")
-    new_friend['salutation'] = raw_input("Are they Mr. or Ms.?: ")
-    new_friend['name'] = new_friend['salutation'] + " " + new_friend['name']
-    new_friend['age'] = int(raw_input("Age?"))
-    new_friend['rating'] = int(raw_input("Spy rating?"))
+    new_friend.name= raw_input("\nYour friend's name:")
+    new_friend.salutation = raw_input("Are they Mr. or Ms.?: ")
+    new_friend.name = new_friend.salutation + " " + new_friend['name']
+    new_friend.age= int(raw_input("Age?"))
+    new_friend.rating = int(raw_input("Spy rating?"))
 
-    if len(new_friend['name']) > 0 and new_friend['age']> 12 and new_friend['rating'] >= spy['rating']:
+    if len(new_friend.name) > 0 and new_friend.age> 12 and new_friend.rating >= spy.rating:
         Friends.append(new_friend)
 
     else:
@@ -111,11 +106,7 @@ def send_a_message():
     Steganography.encode(image, output_path, text)
     print("Message sent... ")
     text = "You : " + text
-    new_chat = {
-        "message": text,
-        "time": datetime.now(),
-        "send_by_me": True
-    }
+    new_chat = spy_details.ChatMessage(text,True)
     Friends[friend_choice]["Chats"].append(new_chat)
 
 def read_message():
@@ -123,15 +114,11 @@ def read_message():
     image = raw_input("Name of image to be decoded : ")
     text = Steganography.decode(image)
     text = Friends[friend_choice]["Name"] + " : "+ text
-    new_chat = {
-        "message": text,
-        "time": datetime.now(),
-        "send_by_me": False
-    }
+    new_chat = spy_details.ChatMessage(text,True)
     Friends[friend_choice]["Chats"].append(new_chat)
     print(text)
 
-user=("continue as a "+spy_salutation+" "+spy_name+" (Y/N)")
+user=("continue as a "+spy.salutation+" "+spy.name+" (Y/N)")
 existing=raw_input(user)
 if existing == "Y":
     start_chat(spy_name,spy_age,spy_rating)
