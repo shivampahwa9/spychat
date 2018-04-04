@@ -6,7 +6,7 @@
 
 
 
-class spy:
+class Spy:
     def __init__(self,name,salutation,rating,age):
         self.name = name
         self.salutation = salutation
@@ -21,7 +21,6 @@ friend_one = Spy('Aman', 'Mr.', 27, 4.9)
 friend_two = Spy('James', 'Mr.', 21, 4.39)
 friend_three = Spy('Raghav', 'Mr.', 37, 4.95)
 
-friends=[friend_one,friend_two,friend_three]
 
 class ChatMessage:
 

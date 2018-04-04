@@ -1,5 +1,5 @@
 from spy_details import spy_name,spy_salutation,spy_age,spy_rating
-from spy_details import spy,ChatMessage
+from spy_details import Spy,ChatMessage
 from steganography.steganography import Steganography
 from datetime import datetime
 
